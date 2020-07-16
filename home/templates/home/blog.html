@@ -1,0 +1,11 @@
+{% extends 'home/layout.html' %}
+
+
+{% block body %}
+<h1>{{ blog.blog_title}}</h1>
+
+<p>{{ blog.blog_context}}</p>
+
+<a href="{% url 'author' blog.blog_author.id %}">{{blog.blog_author}}</a>
+
+{% endblock body %}

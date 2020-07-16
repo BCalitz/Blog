@@ -1,0 +1,13 @@
+{% extends 'home/layout.html' %}
+
+
+{% block body %}
+<div>
+    <form action="{% url 'post' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+    <p>{{message}}</p>
+</div>
+{% endblock body %}

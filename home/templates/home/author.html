@@ -1,0 +1,16 @@
+{% extends 'home/layout.html' %}
+
+
+{% block body %}
+<h1>{{ author}}</h1>
+
+<h3>Posts: </h3>
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url 'blog' post.id %}">{{ post }}</a></li>
+    {% empty %}
+        <li>No Posts!</li>
+    {% endfor %}
+</ul>
+
+{% endblock body %}

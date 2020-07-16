@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+</head>
+<body>
+    <div class='nav'>
+        <ul class='items'>
+            <li class='li'><a href="{% url 'home' %}" class='item'>Home</a></li>
+            <li class='li'><a href="{% url 'authors' %}" class='item'>Authors</a></li>
+            
+            {% if log.loggedin %}
+                <li class='li'><a href="{% url 'post' %}" class='item'>Create Post</a></li>
+                <li class='lir li'><a href="{% url 'logout' %}" class='item'>Logout</a></li>
+                <li class='lir li'><a href="{% url 'author' log.author.id %}" class='item'>{{log.author.author_fname}} {{log.author.author_sname}}</a></li>
+            {% else %}
+                <li class='lir li'><a href="{% url 'login' %}" class='item'>Log In</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class='body'>
+        {% block body %}{% endblock body %}
+    </div>
+    
+</body>
+</html>

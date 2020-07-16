@@ -1,0 +1,88 @@
+.author {
+  font-size: 15px;
+}
+
+.blog {
+  border-width: 1px;
+  background-color: rgb(224, 224, 224);
+  border-color: grey;
+  border-style: solid;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.title {
+  background-color: rgb(133, 133, 133);
+  height: fit-content;
+  padding: 1px 10px;
+  font-size: large;
+}
+
+a,
+a:hover,
+a:visited,
+a:active,
+a:link {
+  color: black;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  padding: 2px 10px;
+  font-size: large;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
+}
+
+.body {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+body{
+    margin-top: 80px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.li {
+  float: left;
+}
+
+.li .item {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.li .item:hover:not(.active) {
+  background-color: #111;
+}
+
+.lir{
+  float: right;
+}
