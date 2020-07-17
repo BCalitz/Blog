@@ -5,8 +5,10 @@ class Author(models.Model):
 
     author_fname = models.CharField(max_length=64)
     author_sname = models.CharField(max_length=64)
-    author_email = models.EmailField(max_length=254)
+    author_email = models.EmailField(max_length=254, unique=True)
     author_pass = models.CharField(max_length=15)
+    # followers = models.ManyToManyField('self', related_name='follower',blank=True)
+    # following = models.ManyToManyField('self', related_name='following',blank=True)
     def __str__(self):
         return f"{self.author_fname} {self.author_sname}"
 

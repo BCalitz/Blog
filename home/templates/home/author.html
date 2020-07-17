@@ -2,15 +2,17 @@
 
 
 {% block body %}
-<h1>{{ author}}</h1>
-
-<h3>Posts: </h3>
-<ul>
-    {% for post in posts %}
-        <li><a href="{% url 'blog' post.id %}">{{ post }}</a></li>
-    {% empty %}
-        <li>No Posts!</li>
-    {% endfor %}
-</ul>
-
+<div class = 'authors-container'>
+    <h1>{{ author}}</h1>
+    <h5>Email: <a href="mailto: {{author.author_email}}">{{author.author_email}}</a></h5>
+    <hr>
+    <h2>Blogs: </h2>
+    <ul class='author-list posts'>
+        {% for post in posts %}
+            <li><a class='author ' href="{% url 'blog' post.id %}">{{ post }}</a></li>
+        {% empty %}
+            <li>No Posts!</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock body %}

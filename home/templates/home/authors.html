@@ -2,13 +2,16 @@
 
 
 {% block body %}
-<h3>Authors </h3>
-<ul>
-    {% for author in authors %}
-        <li><a href="{% url 'author' author.id %}">{{ author }}</a></li>
-    {% empty %}
-        <li>No Authors!</li>
-    {% endfor %}
-</ul>
+<div class = 'authors-container'>
+    <h1>Authors </h1>
+    <hr>
+    <ul class='author-list'>
+        {% for author in authors %}
+            <li ><a class='author ' href="{% url 'author' author.id %}">{{ author }}</a></li>
+        {% empty %}
+            <li>No Authors!</li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock body %}

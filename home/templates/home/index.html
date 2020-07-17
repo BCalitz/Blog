@@ -2,20 +2,23 @@
 
 
 {% block body %}
+<div class='content'>
+    <ul class='blogs'>
+        {% for blog in blogs %}
+            <li class='blog-container'>
+                <a class='blog' href="{% url 'blog' blog.id %}" >
+                        <div class='content-container'>
+                            <h3 class='title'>{{ blog.blog_title}} </h3>
+                            <h5 class='name'>By: {{ blog.blog_author}}</h5>
+                            <p class='paragraph-container'>{{ blog.blog_context}}</p>
+                        </div>
 
-    {% for blog in blogs %}
-        <a href="{% url 'blog' blog.id %}" >
-            <div class='blog'>
-                <div class="title">
-                    <h3>
-                        {{ blog.blog_title}} <span class="author">{{ blog.blog_author}}</span>
-                    </h3>
-                </div>
-                <p class='content'>{{ blog.blog_context}}</p>
-            </div>
-        </a>
-    {% empty %}
-        <h3>No blogs</h3>
-    {% endfor %}
 
+                </a>
+            </li>
+        {% empty %}
+            <li><h3>No blogs</h3></li> 
+        {% endfor %}
+    </ul>
+</div>
 {% endblock body %}

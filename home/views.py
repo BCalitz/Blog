@@ -8,19 +8,19 @@ from django import forms
 
 
 class SignUpForm(forms.Form):
-    fname = forms.CharField(label="First Name")
-    sname = forms.CharField(label="Last Name")
-    email = forms.EmailField(label="Email")
-    password = forms.CharField(widget=forms.PasswordInput, label="Password")
-    cpass = forms.CharField(widget=forms.PasswordInput, label="Conferm Password")
+    fname = forms.CharField(label="First Name",widget=forms.TextInput(attrs={'class': 'block'}))
+    sname = forms.CharField(label="Last Name", widget=forms.TextInput(attrs={'class': 'block'}))
+    email = forms.EmailField(label="Email", widget=forms.TextInput(attrs={'class': 'block content-form'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'block'}), label="Password")
+    cpass = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'block'}), label="Confirm Password")
 
 class SignInForm(forms.Form):
-    email = forms.EmailField(label="Email")
-    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+    email = forms.EmailField(label="Email",widget=forms.TextInput(attrs={'class': 'block'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'block'}), label="Password")
 
 class PostForm(forms.Form):
-    title =forms.CharField(label='Title')
-    content= forms.CharField(widget=forms.Textarea)
+    title =forms.CharField(label='Title',widget=forms.TextInput(attrs={'class': 'block'}))
+    content= forms.CharField(widget=forms.Textarea(attrs={'class': 'block'}))
 
 
 def index(request):
@@ -55,7 +55,7 @@ def author(request, author_id):
 def authors(request):
     authors = Author.objects.all()
     return render(request, "home/authors.html", {
-        'authors': authors,
+        'authors': authors.order_by('author_sname','author_fname'),
         'log': request.session['log']
     })
 
@@ -105,18 +105,24 @@ def signup(request):
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
             cpass = form.cleaned_data["cpass"]
-            if password == cpass:
-                user = Author(author_fname=fname, author_sname=sname,
-                            author_email=email, author_pass=password)
-                user.save()
-                (request.session['log'])['loggedin'] = True
-                (request.session['log'])['author'] = model_to_dict(user)
-                request.session.modified = True
-                return HttpResponseRedirect(reverse("home"))
+            if not Author.objects.filter(author_email=email):
+                if password == cpass:
+                    user = Author(author_fname=fname, author_sname=sname,
+                                author_email=email, author_pass=password)
+                    user.save()
+                    (request.session['log'])['loggedin'] = True
+                    (request.session['log'])['author'] = model_to_dict(user)
+                    request.session.modified = True
+                    return HttpResponseRedirect(reverse("home"))
+                else:
+                    return render(request, "home/signup.html",{
+                        'form':form,
+                        'message': 'Passwords don\'t match!',
+                    })
             else:
                 return render(request, "home/signup.html",{
                     'form':form,
-                    'message': 'Passwords don\'t match!',
+                    'message': 'Email already exists',
                 })
     return render(request, "home/signup.html",{
         'form': SignUpForm
