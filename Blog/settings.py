@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'home',
+    'portfolio',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'home.urls'
+ROOT_URLCONF = 'Blog.urls'
 
 TEMPLATES = [
     {
@@ -122,6 +123,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "Blog/static/")
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "home/static/home"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "home/static/home"),
+# )

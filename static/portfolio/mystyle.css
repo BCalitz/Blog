@@ -1,0 +1,101 @@
+body {
+    background-color: rgb(48, 47, 47);
+    padding: 0;
+    margin: 0;
+}
+.cendiv {
+    margin: 0 auto 0 auto;
+    padding-top: 100px;
+}
+
+.centxt{
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(168, 168, 168);
+        text-align: center;
+}
+
+header{
+    padding-top: 1%;
+}
+.headimg{
+    height: 30px;
+    margin-left: 2%;
+}
+    
+.BtnCon{
+    height: 35px;
+    width: 125px;
+    background-color: rgb(20, 20, 20);
+    outline: none;
+    color: slategray;
+    font-family: 'Arial Bold', sans-serif;
+    font-weight: 700;
+    margin-right: 2%;
+    float: right;margin-right: 10px;
+}
+
+.BtnRound{
+    border-radius: 50px;
+     border-width: 2px;
+     border-color: rgb(45, 0, 245);
+}
+
+.BtnCon:hover{ background-color: rgb(43, 0, 235); color: #fff;cursor: pointer; }
+.BtnCon:active{ background-color: rgb(30, 0, 165); color: #fff; }
+.heading {
+    font-size: 400%;
+    font-weight: 750;
+    font-family: 'Arial Bold', sans-serif;
+    color:rgb(45, 0, 245);
+    text-shadow: 5px 5px 5px rgb(20, 20, 20);
+}
+.bigimg{
+    display: block;
+    width:50%;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+.green{
+    background-color:rgb(7, 197, 0);
+    margin: 0;   
+}
+.para {
+    width: 40%;
+    font-size: 25px;
+    color: rgb(48, 47, 47);
+
+}
+
+
+.white{
+    background-color: white;
+    width: 40%;
+    height: 50%;
+    margin: 0 auto 5% auto;
+    padding: 40px;
+    box-shadow: 5px 5px 5px rgb(20, 20, 20);
+
+}
+.price{
+    position:relative;
+       bottom:100px;
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.rowh{
+    height: 100%;
+}
+.midsep{
+    border-right: grey 1px solid;
+    border-left: grey 1px solid;
+    
+}
+
+td, th{
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+}

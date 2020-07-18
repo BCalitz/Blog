@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Brandon Calitz | Full stack developer</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'portfolio/mystyle.css' %}">
+</head>
+
+<body>
+    <header>
+        <a href=""><img src="{% static 'portfolio/Logo.png' %}" alt="" class="headimg"></a>
+        <a href="Contact.html"><button class="BtnRound BtnCon btn">Contact Me</button></a>
+    </header>
+    
+    <div class="cendiv" style="padding-bottom: 200px;" >
+        <h1 class="heading centxt">Brandon Calitz</h1>
+        <h2 class="centxt">Full Stack Web Developer.</h2>
+    </div>
+    <img src="{% static 'portfolio/Computer2.png' %}" alt="" class="bigimg">
+    <div class="green" style="height: 15cm;">
+        <div class="para cendiv centxt">
+            <h2>Hello there I am Brandon!</h2>
+            <p style="font-size: 20px;">I have been a full stack developer for a year now, and been a programming for 3 years now and ready to invest time into
+                projects.
+                I've have had a love for programming in general from a young age when i got my first laptop,
+                and from there I have just learnt to program.
+            </p>
+
+        </div>
+    </div>
+<div class='port'>
+    <div class="card-deck group">
+        
+        <div class="card col-4 hover">
+            <a href="{% url 'home' %}">
+            <img class="card-img-top pic" src="{% static 'portfolio/Blog.png' %}" alt="Card image cap">
+            <div class="card-body context">
+            <h5 class="card-title">Blog</h5>
+            <p class="card-text">A small blog website where anyone can post</p>
+            </div>  
+            </a>     
+        </div>
+
+        
+    </div>
+</body>
+
+</html>
